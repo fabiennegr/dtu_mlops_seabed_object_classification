@@ -1,6 +1,6 @@
 # dtu_mlops_team94
 
-A project fro MLOps course at DTU (EuroTeQ)
+A project from MLOps course at DTU (EuroTeQ)
 
 ## Project structure
 
