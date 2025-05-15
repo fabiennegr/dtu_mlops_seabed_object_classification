@@ -1,4 +1,4 @@
-# dtu_mlops_team94
+# dtu_mlops_seabed_object_classification
 
 A project from MLOps course at DTU (EuroTeQ)
 
