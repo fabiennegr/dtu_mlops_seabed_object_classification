@@ -4,7 +4,7 @@ A project from [Machine Learning Operations (MLOps)](https://skaftenicki.github.
 
 ## Goal
 
-This is the project description for group 94 in the 02476 Machine Learning Operations course at DTU. The overall goal of the project is to apply the material we have learned in the course to a machine learning problem, while using one of the given frameworks to do so. We will then finally present our findings in a short presentation as well as hand in the written code.
+This is the project description for group 94 in the 02476 Machine Learning Operations course at DTU. The overall goal of the project is to apply the material we have learned in the course to a machine learning problem, while using one of the given frameworks to do so.
 
 ## Framework and Deep Learning Model
 
