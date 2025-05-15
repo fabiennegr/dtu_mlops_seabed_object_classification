@@ -1,0 +1,54 @@
+name: Build Docker containers, push the to the Artifacts registry
+
+on:
+  push:
+    branches: [ main, feature/w1--docker-images, feature/w2--FastAPI ]
+
+jobs:
+  build-trainer-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: '${{ secrets.GCP_SA_JSON_CREDENTIALS }}'
+
+      - name: GCP Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          # service_account_key: ${{ secrets.GCP_SA_JSON_CREDENTIALS }}
+
+      - name: Setup Google Cloud Artifact registry
+        run: |
+          gcloud auth configure-docker europe-west1-docker.pkg.dev
+        # gcloud auth configure-docker gcr.io
+        # gcloud services enable artifactregistry.googleapis.com
+
+      - name: Build and push Train Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: dockerfiles/train_model.dockerfile
+          push: true
+          tags: |
+            europe-west1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/mlops-team94/train-model:latest
+            europe-west1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/mlops-team94/train-model:${{ github.sha }}
+          # tags: gcr.io/${{ secrets.GCP_PROJECT_ID }}/trainer:latest
+
+      - name: Build and push Deployment Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: dockerfiles/deploy_model_app.dockerfile
+          push: true
+          tags: |
+            europe-west1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/mlops-team94/deploy-model-app:latest
+            europe-west1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/mlops-team94/deploy-model-app:${{ github.sha }}
+          # tags: gcr.io/${{ secrets.GCP_PROJECT_ID }}/trainer:latest

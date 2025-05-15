@@ -1,0 +1,5 @@
+model:
+  path: "models/XXX"
+
+wandb:
+  api_key: "NONE" # override this using CLI or leave it as "NONE" to use one from Google Secret Manager

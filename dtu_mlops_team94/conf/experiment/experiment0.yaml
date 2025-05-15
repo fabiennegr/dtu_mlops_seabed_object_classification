@@ -1,0 +1,14 @@
+seed: 42
+dataset:
+  path: "data/processed/seabed_dataset"
+hyperparameters:
+  num_epochs: 1
+  batch_size: 1
+  learning_rate: 0.0001
+  optimizer_name: sgd
+early_stopping:
+  monitor: valid_loss
+  mode: min
+  patience: 3
+
+wandb_name: "SGD-1-0.0001"

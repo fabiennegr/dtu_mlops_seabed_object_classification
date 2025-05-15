@@ -1,0 +1,7 @@
+FROM python:3.11-slim
+RUN apt update && \
+    apt install --no-install-recommends -y build-essential gcc && \
+    apt clean && rm -rf /var/lib/apt/lists/*
+RUN pip install wandb
+COPY /home/fabi/dtu_mlops_team94/dtu_mlops_team94/train_model.py train_model.py
+ENTRYPOINT ["python", "-u", "train_model.py"]

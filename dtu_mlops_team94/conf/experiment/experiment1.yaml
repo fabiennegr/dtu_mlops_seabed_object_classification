@@ -1,0 +1,14 @@
+seed: 42
+dataset:
+  path: "data/processed/seabed_dataset"
+hyperparameters:
+  num_epochs: 10
+  batch_size: 16
+  learning_rate: 1e-3
+  optimizer_name: adam
+early_stopping:
+  monitor: valid_loss
+  mode: min
+  patience: 3
+
+wandb_name: "Adam-16-0.001"

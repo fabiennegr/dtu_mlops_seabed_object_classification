@@ -1,0 +1,5 @@
+defaults:
+  - experiment: experiment1
+  - project: dtumlops
+  - deployment: basic
+

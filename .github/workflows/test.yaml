@@ -1,0 +1,41 @@
+name: Perform tests on the codebase
+
+on: [push]
+
+jobs:
+  perform_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+          cache: 'pip' # cache pip dependencies
+
+      - name: Login to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: "${{ secrets.GCP_SA_JSON_CREDENTIALS }}"
+
+      - name: GCP Cloud SDK Setup
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+
+      - name: Install python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install . --no-deps
+
+      - name: Perform DVC pull and make data
+        run: |
+          dvc pull
+          make data
+
+      - name: Perform tests using pytest
+        run: |
+          pytest -v

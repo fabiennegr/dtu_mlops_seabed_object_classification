@@ -1,0 +1,9 @@
+outs:
+- md5: 2653370ead96e51b01192c7fcb264045
+  size: 7370752
+  hash: md5
+  path: seabed_dataset.zip
+  cloud:
+    remote_storage:
+      etag: 08d49ed8c7cfe083031001
+      version_id: '1705363891425108'

@@ -1,0 +1,7 @@
+gcp:
+  project_id: "dtu-mlops-jh"
+  bucket_name: "mlops_group94"
+  wandb_api_key_secret_id: "wandb_key"
+
+wandb:
+  project_name: "dtu_mlops_team94"
