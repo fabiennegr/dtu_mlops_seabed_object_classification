@@ -1,5 +1,10 @@
 # MLOps project - Seabed Object Classification
 
+![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=pytorch&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)
+
+
 A project from [Machine Learning Operations (MLOps)](https://skaftenicki.github.io/dtu_mlops/) course at DTU (EuroTeQ).
 
 ## Goal
