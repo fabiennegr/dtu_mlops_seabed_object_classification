@@ -1,6 +1,6 @@
 # dtu_mlops_seabed_object_classification
 
-A project from MLOps course at DTU (EuroTeQ)
+A project from [Machine Learning Operations (MLOps)](https://skaftenicki.github.io/dtu_mlops/) course at DTU (EuroTeQ). 
 
 ## Project structure
 
